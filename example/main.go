@@ -10,9 +10,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/TobiasYin/go-lsp/logs"
-	"github.com/TobiasYin/go-lsp/lsp"
-	"github.com/TobiasYin/go-lsp/lsp/defines"
+	"github.com/timtkacheff/go-lsp/logs"
+	"github.com/timtkacheff/go-lsp/lsp"
+	"github.com/timtkacheff/go-lsp/lsp/defines"
 )
 
 func strPtr(str string) *string {
@@ -76,8 +76,8 @@ func main() {
 			if v != r {
 				res = append(res, defines.TextEdit{
 					Range: defines.Range{
-						Start: defines.Position{uint(i), 0},
-						End:   defines.Position{uint(i), uint(len(v) + 1)},
+						Start: defines.Position{Line: uint(i), Character: 0},
+						End:   defines.Position{Line: uint(i), Character: uint(len(v) + 1)},
 					},
 					NewText: r,
 				})
